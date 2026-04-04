@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map Your Life — Mind Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <div id="hint">Drag to pan &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Click nodes to explore</div>
+
+  <!-- Top-right toolbar -->
+  <div id="toolbar">
+    <button id="bg-btn" class="tool-btn" onclick="openBackground()">&#128196; See background</button>
+    <label id="upload-btn" class="tool-btn upload" title="Upload a new markdown file to regenerate the mind map">
+      &#128196; Upload new background
+      <input type="file" id="md-upload" accept=".md,text/markdown,text/plain" style="display:none" />
+    </label>
+  </div>
+
+  <!-- Canvas -->
+  <div id="canvas-wrap">
+    <svg id="svg-layer"></svg>
+    <div id="nodes-layer"></div>
+  </div>
+
+  <!-- Node detail panel -->
+  <div id="detail-panel">
+    <button id="close-btn" onclick="closePanel()">&#x2715;</button>
+    <h3 id="dp-title"></h3>
+    <p id="dp-body"></p>
+  </div>
+
+  <!-- Zoom controls -->
+  <div id="controls">
+    <button class="ctrl-btn" onclick="zoom(1.2)" title="Zoom in">+</button>
+    <button class="ctrl-btn" onclick="zoom(0.8)" title="Zoom out">&#x2212;</button>
+    <button class="ctrl-btn" onclick="resetView()" title="Reset view">&#x2302;</button>
+  </div>
+
+  <!-- Legend -->
+  <div id="legend">
+    <div class="legend-item" onclick="focusBranch('family')"><div class="legend-dot" style="background:#f07060"></div> Family</div>
+    <div class="legend-item" onclick="focusBranch('friends')"><div class="legend-dot" style="background:#50d0a8"></div> Friends</div>
+    <div class="legend-item" onclick="focusBranch('hobbies')"><div class="legend-dot" style="background:#78d858"></div> Hobbies</div>
+    <div class="legend-item" onclick="focusBranch('events')"><div class="legend-dot" style="background:#e8c040"></div> Life Events</div>
+    <div class="legend-item" onclick="focusBranch('career')"><div class="legend-dot" style="background:#60a8f0"></div> Career</div>
+    <div class="legend-item" onclick="focusBranch('leadership')"><div class="legend-dot" style="background:#c878f0"></div> Leadership</div>
+  </div>
+
+  <!-- Background modal -->
+  <div id="bg-overlay" onclick="handleOverlayClick(event)">
+    <div id="bg-modal">
+      <div id="bg-modal-header">
+        <div><h2 id="bg-modal-title">Map Your Life <span>— source document</span></h2></div>
+        <button id="bg-close" onclick="closeBackground()">&#x2715;</button>
+      </div>
+      <div id="bg-content"></div>
+    </div>
+  </div>
+
+  <!-- Generating overlay -->
+  <div id="generating-overlay">
+    <div id="generating-box">
+      <div id="generating-spinner"></div>
+      <p id="generating-msg">Reading your document…</p>
+      <p id="generating-sub">Claude is building your mind map</p>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
