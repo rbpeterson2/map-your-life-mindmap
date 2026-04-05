@@ -11,8 +11,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing markdown body' });
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+  
+  const client = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY
+});
+ const apiKey = client.apiKey;
+  if (!client.apiKey) {
     return res.status(500).json({ error: 'ANTHROPIC_API_KEY not configured on server' });
   }
 

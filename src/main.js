@@ -325,7 +325,18 @@ window.openBackground = () => {
 };
 window.closeBackground = () => document.getElementById('bg-overlay').classList.remove('open');
 window.handleOverlayClick = e => { if (e.target === document.getElementById('bg-overlay')) window.closeBackground(); };
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { window.closeBackground(); window.closePanel(); } });
+
+// ── Raw Markdown modal ─────────────────────────────────────────
+window.showMarkdown = () => {
+  document.getElementById('md-raw-content').textContent = currentMarkdown;
+  document.getElementById('md-raw-overlay').querySelector('h2').innerHTML =
+    `${documentTitle} <span>— raw markdown</span>`;
+  document.getElementById('md-raw-overlay').classList.add('open');
+};
+window.closeMdRaw = () => document.getElementById('md-raw-overlay').classList.remove('open');
+window.handleMdRawOverlayClick = e => { if (e.target === document.getElementById('md-raw-overlay')) window.closeMdRaw(); };
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { window.closeBackground(); window.closeMdRaw(); window.closePanel(); } });
 
 // ── Generating overlay ─────────────────────────────────────────
 function showGenerating(msg = 'Reading your document…') {

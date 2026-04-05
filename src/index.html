@@ -16,6 +16,7 @@
   <!-- Top-right toolbar -->
   <div id="toolbar">
     <button id="bg-btn" class="tool-btn" onclick="openBackground()">&#128196; See background</button>
+    <button id="md-raw-btn" class="tool-btn" onclick="showMarkdown()">&#128203; Show markdown</button>
     <label id="upload-btn" class="tool-btn upload" title="Upload a new markdown file to regenerate the mind map">
       &#128196; Upload new background
       <input type="file" id="md-upload" accept=".md,text/markdown,text/plain" style="display:none" />
@@ -60,6 +61,17 @@
         <button id="bg-close" onclick="closeBackground()">&#x2715;</button>
       </div>
       <div id="bg-content"></div>
+    </div>
+  </div>
+
+  <!-- Raw Markdown modal -->
+  <div id="md-raw-overlay" onclick="handleMdRawOverlayClick(event)">
+    <div id="md-raw-modal">
+      <div id="md-raw-modal-header">
+        <h2>Map Your Life <span>— raw markdown</span></h2>
+        <button id="md-raw-close" onclick="closeMdRaw()">&#x2715;</button>
+      </div>
+      <pre id="md-raw-content"></pre>
     </div>
   </div>
 
