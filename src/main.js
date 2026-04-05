@@ -1,39 +1,46 @@
 // ── Default mind map data (Map Your Life) ─────────────────────
 const DEFAULT_NODES = [
   { id: 'root', label: 'Map Your Life', sub: 'Coin Experience 4/11/26', x: 0, y: 0, cls: 'root', detail: 'A personal life mapping exercise exploring the key elements that make up who you are — family, friends, hobbies, career, and the moments that shaped your leadership.' },
+
   { id: 'family', label: 'Family', sub: '', x: -560, y: -260, cls: 'family branch-head', detail: 'The people you didn\'t choose but who shaped you most. From parents to in-laws, each relationship left a lasting imprint.' },
-  { id: 'dad', label: 'Dad — Bruce', sub: 'Faith, outdoors, DIY', x: -760, y: -420, cls: 'family', detail: '"What\'s the plan." "1 Second Forgiveness." "If you can read it, you can do it." Bruce set the bedrock of faith and self-reliance. He passed away June 2023.' },
-  { id: 'mom', label: 'Mom — Cheryl', sub: 'Art, word games, dark humor', x: -760, y: -280, cls: 'family', detail: 'Love of word games, drawing, painting, quirky and sometimes dark humor, TV/movies, and reading — especially murder, intrigue, and spy novels.' },
-  { id: 'alyssa', label: 'Alyssa', sub: 'Wife · Met in 5th grade', x: -760, y: -140, cls: 'family', detail: 'Met in 5th grade. Dated briefly in 8th grade. Reunited the summer between junior and senior year of high school. She drives him to be the best version of himself.' },
-  { id: 'siblings', label: 'Siblings', sub: 'Justin, Melanie', x: -540, y: -440, cls: 'family', detail: 'Couldn\'t be more different, yet share the same core. A chaos-free childhood instilled values that stuck. Justin married Ann, Melanie married Bucky.' },
-  { id: 'inlaws', label: 'In-Laws', sub: 'Susan & Ken (dec.)', x: -560, y: -120, cls: 'family', detail: 'Both Susan and Ken are deceased. They truly took him in as a son and loved him unconditionally.' },
-  { id: 'friends', label: 'Friends', sub: '', x: -200, y: -420, cls: 'friends branch-head', detail: 'From a handful of close childhood bonds to a wider adult circle. Quality over quantity has always been the theme.' },
-  { id: 'randy', label: 'Randy', sub: 'Adolescent → Adult', x: -320, y: -580, cls: 'friends', detail: 'The constant. A close friend from adolescence all the way through adulthood. Now lives nearby, though family life keeps him busy.' },
-  { id: 'teen-friends', label: 'Teen Circle', sub: 'Scott, Jill, Courtney, Amy', x: -120, y: -590, cls: 'friends', detail: 'The core group from 9th–12th grade. Still sees Courtney, Jill, Amy, and Scott often. These friendships outlasted the hallways.' },
-  { id: 'college-friends', label: 'College Circle', sub: 'Eric, Ramsey, Allison, Steph', x: -240, y: -700, cls: 'friends', detail: 'A core group formed in college. Connection faded post-graduation. Life moved in different directions.' },
+  { id: 'dad', label: 'Dad — Bruce', sub: 'Faith, outdoors, DIY', x: -760, y: -420, cls: 'family', detail: 'Passed away June 2023. There were highs and lows, but everything he did was out of love. He set the bedrock for a foundation of life in faith — outdoors, hunting, fishing, and doing things yourself. "If you can read it, you can do it." "What\'s the plan." "1 Second Forgiveness."' },
+  { id: 'mom', label: 'Mom — Cheryl', sub: 'Art, word games, dark humor', x: -760, y: -280, cls: 'family', detail: 'Love of word games, drawing, painting, and art. Quirky humor that is sometimes dark. Love of TV, movies, and reading — especially murder, intrigue, and spy novels.' },
+  { id: 'alyssa', label: 'Alyssa', sub: 'Wife · Met in 5th grade', x: -760, y: -140, cls: 'family', detail: 'Drives me to be the best person that I can be, because she deserves the best. Met in 5th grade; dated briefly in 8th grade; started dating again the summer between junior and senior year of high school. No children.' },
+  { id: 'siblings', label: 'Siblings', sub: 'Justin, Melanie', x: -540, y: -440, cls: 'family', detail: 'Couldn\'t be more different, yet share the same core. A safe, chaos-free childhood instilled values and character traits that stuck. Justin married Ann, Melanie married Bucky, and sister-in-law Kim married Victor.' },
+  { id: 'inlaws', label: 'In-Laws', sub: 'Susan & Ken (dec.)', x: -560, y: -120, cls: 'family', detail: 'Both Susan and Ken are deceased. Spent a lot of time with them and loved them dearly. They truly took him in as a son and loved him unconditionally.' },
+
+  { id: 'friends', label: 'Friends', sub: '', x: -200, y: -420, cls: 'friends branch-head', detail: 'From a handful of close childhood bonds to a wider adult circle. Usually one or two close friends at a time — quality over quantity has always been the theme.' },
+  { id: 'randy', label: 'Randy', sub: 'Adolescent → Adult', x: -320, y: -580, cls: 'friends', detail: 'The one constant. The only really close friend from adolescence, and that friendship carried all the way through adulthood. Now lives nearby, though family life keeps him busy.' },
+  { id: 'teen-friends', label: 'Teen Circle', sub: 'Scott, Jill, Courtney, Amy', x: -120, y: -590, cls: 'friends', detail: 'The core group from 9th–12th grade: Scott, Randy, Jill, Courtney, Alyssa, and Amy. Still sees Courtney, Jill, Amy, and Scott often. These friendships outlasted the hallways.' },
+  { id: 'college-friends', label: 'College Circle', sub: 'Eric, Ramsey, Allison, Steph', x: -240, y: -700, cls: 'friends', detail: 'A core group formed in college: Eric, Ramsey, Allison, and Steph. Kept in touch with high school friends alongside them. Connection faded post-graduation as life moved in different directions.' },
   { id: 'mens-alliance', label: "Men's Alliance", sub: 'Brotherhood, now', x: -60, y: -480, cls: 'friends', detail: 'The current brotherhood of men in his life. An intentional community that matters deeply right now.' },
-  { id: 'hobbies', label: 'Hobbies', sub: '', x: 200, y: -420, cls: 'hobbies branch-head', detail: 'What you do with free time reveals character. From outdoor endurance to artistic precision.' },
-  { id: 'hiking', label: 'Hiking', sub: '26 national parks', x: 60, y: -590, cls: 'hobbies', detail: 'Has visited 26 National Parks and been to every state except Alaska. The outdoors is a lifelong companion, inherited from Dad.' },
-  { id: 'photography', label: 'Photography', sub: 'Art meets precision', x: 220, y: -600, cls: 'hobbies', detail: 'Always liked art, but photography offered something special: the precision of a camera fused with creative expression.' },
-  { id: 'music', label: 'Music', sub: 'Trumpet, full brass', x: 360, y: -530, cls: 'hobbies', detail: 'Played trumpet from 5th through 12th grade. By senior year, could play anything in the brass section.' },
-  { id: 'sports', label: 'Sports', sub: 'Swimming, wrestling', x: 100, y: -480, cls: 'hobbies', detail: 'Swimming as a young child — allowed on the team at age 4. Wrestling followed. Competitive and physical from the start.' },
-  { id: 'events', label: 'Life Events', sub: '& Lessons Learned', x: 560, y: -260, cls: 'events branch-head', detail: 'The random and the intentional moments that left a mark — each paired with something true learned from living through it.' },
-  { id: 'ev-faith', label: 'Church camp storm', sub: 'God is good. All the time.', x: 700, y: -440, cls: 'events', detail: 'Survived a crazy storm while at church camp. Lesson: God is with you and is good. All the time.' },
-  { id: 'ev-loss', label: 'Loss of a friend', sub: 'Rafting tragedy', x: 720, y: -300, cls: 'events', detail: 'A friend died on a white water rafting trip — she had been sitting next to Alyssa. Lesson: You only have people in your life for a short time.' },
-  { id: 'ev-college', label: 'College rejections', sub: "It's who you know", x: 740, y: -160, cls: 'events', detail: 'Not accepted into any colleges initially. A neighbor\'s connection at Penn State opened the Plastics program. Lesson: It\'s who you know.' },
-  { id: 'ev-marriage', label: 'Marriage', sub: 'Easy to commit, hard to honor', x: 720, y: -20, cls: 'events', detail: 'Getting married. Lesson: Making a commitment is easy. Honoring it is difficult.' },
-  { id: 'ev-terminated', label: 'Terminated while traveling', sub: "Life doesn't wait", x: 700, y: 120, cls: 'events', detail: 'Was terminated while traveling. Called the loan officer from 5 months prior asking if he knew anyone hiring. Lesson: Ask the question.' },
-  { id: 'ev-grief', label: 'Loss & grief', sub: 'In-laws, miscarriages', x: 680, y: 260, cls: 'events', detail: 'Alyssa\'s dad died, then her mom three years later. Also went through several miscarriages. Lesson: Don\'t wait. It\'s okay to be angry with God.' },
-  { id: 'ev-ownership', label: 'Business ownership', sub: 'Stretch to grow', x: 640, y: 390, cls: 'events', detail: 'Became partner/owner of a company. Bought a lake house. Then was removed. Lesson: Stretch to see growth. Truth has a cost.' },
+
+  { id: 'hobbies', label: 'Hobbies', sub: '', x: 200, y: -420, cls: 'hobbies branch-head', detail: 'What you choose to do with your time reveals character. From outdoor endurance to artistic precision to competitive athletics.' },
+  { id: 'hiking', label: 'Hiking', sub: '26 national parks', x: 60, y: -590, cls: 'hobbies', detail: 'Has visited 26 National Parks and been to every state except Alaska. The outdoors is a lifelong companion — a love inherited directly from Dad.' },
+  { id: 'photography', label: 'Photography', sub: 'Art meets precision', x: 220, y: -600, cls: 'hobbies', detail: 'Always liked art, but photography offered something special: the precision of a camera fused with creative expression. Kind of analytical, but at the same time art.' },
+  { id: 'music', label: 'Music', sub: 'Trumpet, full brass', x: 360, y: -530, cls: 'hobbies', detail: 'Played trumpet from 5th through 12th grade as the primary instrument. By the end of high school, could play anything in the brass section.' },
+  { id: 'sports', label: 'Sports', sub: 'Swimming, wrestling', x: 100, y: -480, cls: 'hobbies', detail: 'Was allowed on the swim team at just 4 years old — pushing past what others thought possible. Wrestling followed. Competitive and physical from the very start.' },
+
+  { id: 'events', label: 'Life Events', sub: '& Lessons Learned', x: 560, y: -260, cls: 'events branch-head', detail: 'All of the random ones that stand out and had some kind of impact — each paired with something true learned from living through it.' },
+  { id: 'ev-swimteam', label: 'Swim team at 4', sub: 'Push past what others expect', x: 700, y: -440, cls: 'events', detail: 'Was allowed on the swim team at just 4 years old. Lesson: Pushing yourself can make you achieve things others don\'t think you can.' },
+  { id: 'ev-faith', label: 'Church camp storm', sub: 'God is good. All the time.', x: 730, y: -320, cls: 'events', detail: 'Survived a crazy storm while at church camp. Lesson: God is with you and is good. All the time.' },
+  { id: 'ev-loss', label: 'Loss of a friend', sub: 'Rafting tragedy', x: 750, y: -200, cls: 'events', detail: 'A friend died on a white water rafting trip — she had been sitting next to Alyssa on a church youth group trip. Lesson: You only have people in your life for a short time.' },
+  { id: 'ev-college', label: 'College rejections', sub: "It's who you know", x: 740, y: -80, cls: 'events', detail: 'Not accepted into any colleges initially. Then scrambled when not accepted into the second half of the degree program. A neighbor\'s connection at Penn State opened the Plastics program. Lesson: Sometimes it\'s literally about who you know.' },
+  { id: 'ev-marriage', label: 'Marriage', sub: 'Easy to commit, hard to honor', x: 720, y: 40, cls: 'events', detail: 'Getting married. Lesson: Making a commitment is easy. Honoring it is difficult.' },
+  { id: 'ev-terminated', label: 'Terminated while traveling', sub: 'Ask the question', x: 700, y: 160, cls: 'events', detail: 'Was terminated while traveling. Called the loan officer from 5 months prior asking if he knew anyone hiring. Lesson: The only way you know an answer to a question is if you ask it.' },
+  { id: 'ev-grief', label: 'Loss & grief', sub: 'Don\'t wait. Talk to God.', x: 680, y: 280, cls: 'events', detail: 'Alyssa\'s dad died, then her mom three years later. Also went through several miscarriages. Lesson: Don\'t wait until you\'re retired to do the things you want. It\'s okay to be angry with God — he\'s there for you to tell him when you are.' },
+  { id: 'ev-ownership', label: 'Ownership & removal', sub: 'Stretch to grow. Truth has a cost.', x: 650, y: 390, cls: 'events', detail: 'Became partner/owner of a company — you have to stretch sometimes to see growth, even when it\'s scary. Bought a lake house — audacious goals can be reached. Then was removed as partner/owner. Lesson: Sometimes people who ask for the truth aren\'t ready to hear it.' },
+
   { id: 'career', label: 'Career', sub: '', x: 0, y: 420, cls: 'career branch-head', detail: 'A winding path from plastic injection sales to independent consulting. Don\'t find your identity in what you do to earn money.' },
   { id: 'c1', label: '2001–2003', sub: 'Plastics sales', x: -300, y: 560, cls: 'career', detail: 'Sales for a plastic injection molding manufacturer. The first job out of school.' },
-  { id: 'c2', label: '2004–2010', sub: 'Banking: loans → IT → PM', x: -110, y: 580, cls: 'career', detail: 'Started as a loan officer. Transitioned into IT, Project Management, then Corporate PM and Change Management — all at the same bank.' },
-  { id: 'c3', label: '2010–2025', sub: 'Startup → Owner', x: 110, y: 580, cls: 'career', detail: 'Business Analyst at a startup, then Business Line Manager, then Owner/Partner/Executive at the same company.' },
+  { id: 'c2', label: '2004–2010', sub: 'Banking: loans → IT → PM', x: -110, y: 580, cls: 'career', detail: 'Started as a loan officer at a bank. Transitioned into IT and Project Management, then Corporate PM and Change Management — all at the same bank.' },
+  { id: 'c3', label: '2010–2025', sub: 'Startup → Owner', x: 110, y: 580, cls: 'career', detail: 'Business Analyst at a startup, then Business Line Manager, then Owner/Partner/Executive at the same company through 2025.' },
   { id: 'c4', label: '2026–', sub: 'Independent consultant', x: 300, y: 560, cls: 'career', detail: 'Now self-employed as a consultant. A new chapter that reflects the lessons of every previous one.' },
+
   { id: 'leadership', label: 'Leadership', sub: '', x: -560, y: 260, cls: 'leadership branch-head', detail: 'Leadership isn\'t a title — it\'s the default posture wherever you show up. Shaped by watching a father who gave equal attention to everyone.' },
-  { id: 'l-dad', label: "Dad's example", sub: 'Engineer or janitor — same respect', x: -720, y: 140, cls: 'leadership', detail: 'The formative leadership lesson: watching Dad interact with everyone the same way — engineer or janitor, everyone got the same respect and attention.' },
-  { id: 'l-roles', label: 'Roles held', sub: 'JV mgr, exec, tribe leader', x: -720, y: 300, cls: 'leadership', detail: 'Builder Joint Venture manager. Executive prior to ownership. Executive after ownership. Specter Tribe leader. Leadership at work and in the Outdoor Experience.' },
-  { id: 'l-style', label: 'Style', sub: 'Fair · Present · Servant', x: -680, y: 440, cls: 'leadership', detail: 'A leadership style rooted in fairness, presence, and service. Still being refined.' },
+  { id: 'l-dad', label: "Dad's example", sub: 'Engineer or janitor — same respect', x: -720, y: 140, cls: 'leadership', detail: 'Not a single event but a pattern — watching Dad own a business and treat everyone fairly. Whether an engineer or the janitor, everyone got the same respect and attention in the conversation.' },
+  { id: 'l-roles', label: 'Roles held', sub: 'JV mgr, exec, tribe leader', x: -720, y: 300, cls: 'leadership', detail: 'Builder Joint Venture manager. Executive prior to ownership. Executive after ownership. Specter Tribe leader. Leadership at work and in the Outdoor Experience — anywhere he\'s involved.' },
+  { id: 'l-style', label: 'Style', sub: 'Fair · Present · Servant', x: -680, y: 440, cls: 'leadership', detail: 'A leadership style rooted in fairness, presence, and service. Showing up the same way for everyone, everywhere. Still being refined.' },
 ];
 
 const DEFAULT_EDGES = [
@@ -41,7 +48,7 @@ const DEFAULT_EDGES = [
   ['family','dad'],['family','mom'],['family','alyssa'],['family','siblings'],['family','inlaws'],
   ['friends','randy'],['friends','teen-friends'],['friends','college-friends'],['friends','mens-alliance'],
   ['hobbies','hiking'],['hobbies','photography'],['hobbies','music'],['hobbies','sports'],
-  ['events','ev-faith'],['events','ev-loss'],['events','ev-college'],['events','ev-marriage'],['events','ev-terminated'],['events','ev-grief'],['events','ev-ownership'],
+  ['events','ev-swimteam'],['events','ev-faith'],['events','ev-loss'],['events','ev-college'],['events','ev-marriage'],['events','ev-terminated'],['events','ev-grief'],['events','ev-ownership'],
   ['career','c1'],['career','c2'],['career','c3'],['career','c4'],
   ['leadership','l-dad'],['leadership','l-roles'],['leadership','l-style'],
 ];
@@ -50,6 +57,7 @@ const DEFAULT_MD = `# Map Your Life
 ## Coin Experience 4/11/26
 
 ### Elements of Life
+There are key elements of one's life that are part of you.
 1. **Family** - most of us don't get to choose this one
 2. **Friends** - your associations
 3. **Hobbies** - what you choose to do with your time
@@ -62,54 +70,61 @@ const DEFAULT_MD = `# Map Your Life
 
 ### Family
 
-**Immediate** - 3rd and last child.
+**Immediate** — 3rd and last child.
 
 #### My Dad, Bruce
-Whom I share a name with passed away June 2023. He provided a lot of insight and instruction in my life. ***He set the bedrock for having a foundation of life in faith.*** "If you can read it, you can do it", "What's the plan", "1 Second Forgiveness"
+Whom I share a name with passed away June 2023. He provided a lot of insight and instruction in my life. There were highs and lows in our relationship but as I've matured, I understand everything that he did was out of love and most times everything that I did was out of misunderstanding. ***He set the bedrock for having a foundation of life in faith.*** Love of outdoors, hunting, fishing; being able to try and do all things yourself at least once. "If you can read it, you can do it." "What's the plan." "1 Second Forgiveness."
 
 #### My Mom, Cheryl
-Love of word games, drawing/painting/art, quirky humor which is sometimes dark, love of tv/movies, reading especially murder/intrigue/spy
+Love of word games, drawing/painting/art, quirky humor which is sometimes dark, love of TV/movies, reading especially murder/intrigue/spy.
 
 #### My Siblings
-We couldn't be more different but there is a lot of ways that we're the same too.
+We couldn't be more different but there are a lot of ways that we're the same too — having had a very safe and chaos-free childhood, we got instilled with the values and character traits that our parents wanted us to have.
 
-**Alyssa** — Drives me to be the best person that I can be. Met in 5th grade; dated 1 year in 8th grade; started dating again summer between Jr and Sr of high school. **No children**
+**Alyssa** — Drives me to be the best person that I can be, because she deserves the best. We love spending time with each other. Met in 5th grade; dated 1 year in 8th grade; started dating again summer between Jr and Sr of high school. **No children.**
 
-**Extended** — In Laws: Both Mother-in-law, Susan, and Father-in-law, Ken, are deceased. Brother: Justin (married Ann). Sister: Melanie (married Bucky). Sister-in-law: Kim (married Victor).
+**Extended** — In Laws: Both Mother-in-law, Susan, and Father-in-law, Ken, are deceased. Spent a lot of time with them and loved them dearly. They truly took me in as a son and loved me unconditionally. Brother: Justin (married Ann). Sister: Melanie (married Bucky). Sister-in-law: Kim (married Victor). They all have children and we've been fortunate to be part of their lives in some capacity.
 
 ---
 
 ### Friends
 
-1. **Youth** - Didn't have a lot of friends growing up.
-2. **Adolescent** - Really only had one really good friend, Randy.
-3. **Teens** - Randy, Scott, Jill, Courtney, Alyssa, Amy
-4. **Early Adult** - Eric, Ramsey, Allison, Steph
-5. **Adult** - Now I have a brotherhood of guys here at Men's Alliance
+1. **Youth** (before 5th grade) — Didn't have a lot of friends growing up. Usually had one or maybe two close friends.
+2. **Adolescent** (5th–8th grade) — Really only had one really good friend, Randy.
+3. **Teens** (9th–12th) — Still had Randy but expanded to a core group of Scott, Randy, Jill, Courtney, Alyssa, Amy.
+4. **Early Adult** (College) — Kept in touch with high school friends; had a core group: Eric, Ramsey, Allison, Steph.
+5. **Adult** (post-college to now) — Randy now lives nearby but family life keeps him busy; see Courtney, Jill, Amy, Scott often. Haven't really kept in touch with Eric, Ramsey, Allison, or Steph. But now I have a brotherhood of guys here at Men's Alliance.
 
 ---
 
 ### Hobbies
 
-1. **Hiking** - 26 National Parks; every state except Alaska
-2. **Photography** - Analytical but at the same time art.
-3. **Sports** - Swimming and then Wrestling.
-4. **Music** - Trumpet from 5th to 12th grade; by end of high school, could play anything in the brass section
+1. **Hiking** — Have been to 26 National Parks; been in every state except Alaska.
+2. **Photography** — Have always liked art but liked the precision of photography with the camera; kind of analytical but at the same time art.
+3. **Sports** — Growing up it was a lot of sports: Swimming and then Wrestling.
+4. **Music** — Played trumpet from 5th to 12th grade as primary instrument; by end of high school, could play anything in the brass section.
 
 ---
 
 ## Significant Events & Lessons Learned
 
-1. Surviving a crazy storm at church camp — *God is with you and is good. All the time.*
-2. Friend dying in a white water rafting trip (sitting next to Alyssa) — *You only have people a short time in your life.*
-3. Not being accepted into any colleges; neighbor's connection at Penn State — *Sometimes it's literally about who you know.*
-4. Getting married — *Making a commitment is easy. Honoring it is difficult.*
-5. Being terminated while traveling — *Things in life happen whether you're ready or not.*
-6. Going through several mergers — *Don't find your identity in what you do to earn money.*
-7. Alyssa's parents passing away; several miscarriages — *Don't wait. It's okay to be angry with God.*
-8. Becoming partner/owner of a company — *You have to stretch sometimes to see growth.*
-9. Bought a lake house — *Audacious goals can be reached.*
-10. Being removed as a partner/owner — *Sometimes people who ask for the truth aren't ready to hear it.*
+### Life Events
+These are all of the random ones that stand out that had some kind of impact.
+
+1. Being allowed to be on the swim team at 4 years old — *Pushing yourself can make you achieve things others don't think you can.*
+2. Surviving a crazy storm while at church camp — *God is with you and is good. All the time.*
+3. Friend dying in a white water rafting trip (she was sitting next to Alyssa; it was a church youth group trip) — *You only have people a short time in your life.*
+4. Not being accepted into any colleges; neighbor's connection at Penn State got me into the Plastics program — *Sometimes it's literally about who you know.*
+5. Not being accepted into the 2nd half of the degree program and scrambling on what to do next — *Don't make mole hills into mountains. Step back and make a plan.*
+6. Getting married — *Making a commitment is easy. Honoring it is difficult.*
+7. Being terminated while traveling — *Things in life happen whether you're ready for them or not.*
+8. Calling the loan officer that did our loan 5 months prior after getting termed, asking if he knew anyone hiring — *The only way you know an answer to a question is if you ask it.*
+9. Going through several mergers — *Your occupation isn't you. Don't find your identity in what you do to earn money.*
+10. Alyssa's Dad dying and then 3 years later, her Mom dying — *Don't wait until you're retired to do the things that you want to do. It's okay to be angry with God and he's there for you to tell him when you are.*
+11. Having several miscarriages — *No fault of your own, your plans are not always going to work the way you want them to. It's okay to be angry with God.*
+12. Becoming partner/owner of a company — *You have to stretch sometimes to see growth, even when it's scary.*
+13. Bought a lake house — *Audacious goals can be reached.*
+14. Being removed as a partner/owner of a company — *Sometimes people that ask for the truth aren't ready to hear it.*
 
 ---
 
@@ -119,7 +134,7 @@ We couldn't be more different but there is a lot of ways that we're the same too
 2. Executive in company prior to ownership
 3. Executive in company after ownership
 4. Specter Tribe
-5. Leadership at Work, Outdoor Experience
+5. Anywhere that I'm involved: Leadership at Work, Outdoor Experience
 
 ### Occupations
 
@@ -130,7 +145,7 @@ We couldn't be more different but there is a lot of ways that we're the same too
 
 ### Events that Shaped My Leadership Style
 
-Watching my Dad own a business and treat everyone fairly — whether engineer or janitor, everyone got the same respect and attention.`;
+Not a single event, but as my Dad owned a business, seeing how he interacted with everyone and treated them fairly — whether they were an engineer or they were the janitor, everyone got the same amount of respect and attention in the conversation that he was having with them.`;
 
 // ── State ─────────────────────────────────────────────────────
 let nodeData = [...DEFAULT_NODES];
