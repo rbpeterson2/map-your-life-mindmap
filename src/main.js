@@ -356,13 +356,23 @@ const messages = [
   'Almost there…',
 ];
 
+function readFileAsText(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error('Could not read file'));
+    reader.readAsText(file, 'utf-8');
+  });
+}
+
 document.getElementById('md-upload').addEventListener('change', async e => {
   const file = e.target.files[0];
   if (!file) return;
+
+  // Read file before resetting input (some browsers invalidate files list on reset)
+  const markdown = await readFileAsText(file);
   e.target.value = ''; // reset so same file can be re-uploaded
 
-  // Read file
-  const markdown = await file.text();
   currentMarkdown = markdown;
   documentTitle = file.name.replace(/\.md$/i, '').replace(/[-_]/g, ' ');
 
