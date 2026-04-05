@@ -1,6 +1,7 @@
 {
   "name": "map-your-life-mindmap",
   "version": "1.0.0",
+  "type": "module",
   "description": "Interactive life mind map with AI-powered regeneration",
   "scripts": {
     "dev": "vite",
