@@ -63,7 +63,7 @@ Color class rules:
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-5',
         max_tokens: 4096,
         system: systemPrompt,
         messages: [
@@ -76,8 +76,9 @@ Color class rules:
     });
 
     if (!response.ok) {
-      const err = await response.text();
-      return res.status(502).json({ error: 'Anthropic API error', detail: err });
+      const errBody = await response.json().catch(() => ({}));
+      const detail = errBody?.error?.message ?? `HTTP ${response.status}`;
+      return res.status(502).json({ error: `Anthropic API error: ${detail}` });
     }
 
     const data = await response.json();
