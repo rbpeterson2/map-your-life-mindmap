@@ -12,11 +12,8 @@ export default async function handler(req, res) {
   }
 
   
-  const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
-});
- const apiKey = client.apiKey;
-  if (!client.apiKey) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
     return res.status(500).json({ error: 'ANTHROPIC_API_KEY not configured on server' });
   }
 
